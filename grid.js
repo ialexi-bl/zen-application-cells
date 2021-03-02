@@ -1,7 +1,7 @@
 const { iterateGrid } = require('./util')
 const fs = require('fs')
 
-function generateGrid(width, height, density = 0.1) {
+function generateGrid(width, height, density) {
   const grid = { width, height, cells: {} }
   iterateGrid(width, height, (x, y) => {
     if (Math.random() < density) {

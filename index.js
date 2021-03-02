@@ -5,7 +5,7 @@ function main() {
   let grid
   let width = 50
   let height = 10
-  let density = undefined
+  let density = 0.2
 
   for (let i = 0; i < process.argv.length; i++) {
     switch (process.argv[i]) {
@@ -33,12 +33,9 @@ function main() {
   }
 
   if (!grid) {
-    if (typeof width === 'number' && isNaN(width))
-      throw new Error('Invalid width')
-    if (typeof height === 'number' && isNaN(height))
-      throw new Error('Invalid height')
-    if (typeof density === 'number' && isNaN(density))
-      throw new Error('Invalid density')
+    if (isNaN(width)) throw new Error('Invalid width')
+    if (isNaN(height)) throw new Error('Invalid height')
+    if (isNaN(density)) throw new Error('Invalid density')
 
     grid = generateGrid(width, height, density)
   }
